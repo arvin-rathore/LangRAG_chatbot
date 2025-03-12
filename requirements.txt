@@ -1,0 +1,12 @@
+asyncio
+numpy
+faiss-cpu
+pymupdf
+paddleocr
+streamlit
+google-generativeai
+pickle-mixin
+langchain
+langchain-community
+langchain-huggingface
+openai
