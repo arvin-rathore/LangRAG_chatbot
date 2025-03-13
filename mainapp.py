@@ -22,14 +22,15 @@ llm = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 # Configuration
 MODEL_NAME = "BAAI/bge-small-en-v1.5"
-EMBEDDINGS_FILE = "embeddings.pkl"
-INDEX_FILE = "faiss_index.idx"
 PDF_DIR = "data"
+INDEX_FILE = "faiss_index/index.faiss"
+EMBEDDINGS_FILE = "faiss_index/index.pkl"
+
 CHUNK_SIZE = 512  # Token-based chunking
 CHUNK_OVERLAP = 50
 
-# Load embedding model
-embedding_model = HuggingFaceEmbeddings(model_name=MODEL_NAME)
+# embedding model
+embedding_model = HuggingFaceEmbeddings(model_name=MODEL_NAME) #can also use any other embedding model
 
 
 def chunk_text(text):
