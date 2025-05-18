@@ -1,12 +1,21 @@
-asyncio
-numpy
-faiss-cpu
-pymupdf
-paddleocr
-streamlit
-google-generativeai
-pickle-mixin
-langchain
-langchain-community
-langchain-huggingface
-openai
+# requirements.txt
+
+# Core dependencies
+streamlit>=1.28.0
+langchain>=0.0.335
+faiss-cpu>=1.7.4
+google-generativeai>=0.3.1
+PyMuPDF>=1.23.5
+numpy>=1.24.0
+pickle-mixin>=1.0.2
+
+# Embeddings
+langchain-huggingface>=0.0.7
+sentence-transformers>=2.2.2
+
+# OpenAI for LangChain (optional)
+langchain-community>=0.0.13
+openai>=1.3.0
+
+# Environment and configuration
+python-dotenv>=1.0.0
