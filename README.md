@@ -18,13 +18,6 @@ Python 3.7+
 Pip package manager
 API key for Google Gemini or OpenAI (depending on your preferred LLM)
 
-Installation
-
-Clone the repository
-
-bashgit clone https://github.com/yourusername/pdf-chatbot.git
-cd pdf-chatbot
-
 Set up a virtual environment
 
 bash# Create and activate virtual environment
