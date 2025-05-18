@@ -1,12 +1,64 @@
 PDF Chatbot
-A simple modular PDF chatbot that allows you to ask questions about your PDF documents using semantic search and LLMs.
+PDF Chatbot is an intelligent document assistant that lets you have natural conversations with your PDF documents. Ask questions in plain language and get accurate, contextual answers powered by advanced language models.
 Features
 
-📄 Extract text from multiple PDF files
-🔍 Generate embeddings for semantic search
-🧠 Use FAISS for efficient vector search
-💬 Leverage Google's Gemini or OpenAI's GPT for responses
-🌐 Interactive Streamlit web interface
+Multi-Document Support - Upload and chat with multiple PDFs simultaneously
+Semantic Search - Advanced vector search finds relevant content beyond simple keyword matching
+Smart Chunking - Optimized text segmentation for better context retention
+Dual AI Support - Choose between Google's Gemini or OpenAI's GPT models
+Source Citations - Answers cite their exact sources within your documents
+Clean, Intuitive UI - Streamlit-powered interface that's easy to use
+Built for Performance - FAISS vector database enables fast, efficient searches
+Highly Customizable - Adjust chunking, models, and search parameters to suit your needs
+
+Quick Start
+Prerequisites
+
+Python 3.7+
+Pip package manager
+API key for Google Gemini or OpenAI (depending on your preferred LLM)
+
+Installation
+
+Clone the repository
+
+bashgit clone https://github.com/yourusername/pdf-chatbot.git
+cd pdf-chatbot
+
+Set up a virtual environment
+
+bash# Create and activate virtual environment
+python -m venv venv
+
+# On macOS/Linux
+source venv/bin/activate
+
+# On Windows
+venv\Scripts\activate
+
+Install dependencies
+
+bashpip install -r requirements.txt
+
+Configure your API keys
+
+Create a .env file in the project root (or update config.py):
+GEMINI_API_KEY=your_gemini_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here  # Optional
+
+Launch the application
+
+bashstreamlit run app.py
+
+Open your browser at http://localhost:8501
+
+💬 How to Use
+
+Upload your PDFs - Use the file uploader in the sidebar
+Wait for processing - The system will extract text and generate embeddings
+Ask questions - Type your question in the chat input
+Get answers - Receive contextual responses based on your PDFs
+View sources - See exactly which parts of your documents provided the answers
 
 Project Structure
 pdf_chatbot/
@@ -24,50 +76,38 @@ pdf_chatbot/
 ├── .gitignore              # Git ignore file
 │
 └── data/                   # Directory for PDF files
-    └── sample.pdf          # Sample PDF for testing
-Setup Instructions
+⚙️ Advanced Configuration
+You can customize the behavior of PDF Chatbot by editing config.py:
+ParameterDescriptionDefaultCHUNK_SIZEThe size of text chunks for processing1000CHUNK_OVERLAPOverlap between chunks to maintain context200EMBEDDING_MODEL_NAMEModel used for generating embeddings"all-MiniLM-L6-v2"TOP_K_RESULTSNumber of chunks to retrieve for each query5TEMPERATUREControls creativity of LLM responses0.2
+🔧 Troubleshooting
+Problem: Slow processing of large PDFs
 
-Clone the repository:
-bashgit clone https://github.com/yourusername/pdf-chatbot.git
-cd pdf-chatbot
+Try adjusting CHUNK_SIZE to a larger value
+Consider using a more powerful machine for embedding generation
 
-Create a virtual environment:
-bashpython -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+Problem: Inaccurate answers
 
-Install dependencies:
-bashpip install -r requirements.txt
+Increase TOP_K_RESULTS to provide more context to the LLM
+Try a different embedding model with higher dimensionality
+Adjust TEMPERATURE to get more deterministic responses
 
-Configure API keys:
+🤝 Contributing
+Contributions are welcome! Here's how you can help:
 
-Open config.py
-Add your Gemini API key (replace "API_KEY_HERE" with your actual API key)
-Optionally, add your OpenAI API key if using GPT models
+Fork the repository
+Create a new branch (git checkout -b feature/amazing-feature)
+Make your changes
+Commit your changes (git commit -m 'Add some amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Open a Pull Request
 
-
-Add your PDF files:
-
-Place your PDF files in the data/ directory
-
-
-Run the application:
-bashstreamlit run app.py
-
-
-Usage
-
-Navigate to the Streamlit app in your browser (usually http://localhost:8501)
-Enter your question about the PDF content in the text input
-Click "Get Answer" to receive a response based on the content of your PDFs
-The sources used to generate the response will be displayed below the answer
-
-Customization
-
-Change embedding model: Edit EMBEDDING_MODEL_NAME in config.py
-Adjust chunk size: Modify CHUNK_SIZE and CHUNK_OVERLAP in config.py
-Switch LLM: The code supports both Gemini and OpenAI models
-
-Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-License
+Please make sure to update tests as appropriate.
+📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+🙏 Acknowledgements
+
+Streamlit for the awesome UI framework
+Google Gemini and OpenAI for their powerful language models
+FAISS for efficient similarity search
+LangChain for inspiration on document processing techniques
+
